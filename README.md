@@ -11,7 +11,7 @@ Azure Cosmos DB is a globally distributed multi-model database. One of the suppo
 
 * Before you can run this sample, you must have the following prerequisites:
 
-	* An active Azure DocumentDB account - If you don't have an account, refer to the [Create a DocumentDB account](https://azure.microsoft.com/en-us/documentation/articles/documentdb-create-account/) article.
+	* An active Azure Cosmos DB account - If you don't have an account, refer to the [Build a Node.js application by using Graph API](https://docs.microsoft.com/en-us/azure/cosmos-db/create-graph-nodejs) article.
 	* [Node.js](https://nodejs.org/en/) version v0.10.29 or higher.
 	* [Git](http://git-scm.com/).
 
