@@ -1,6 +1,6 @@
 "use strict";
 
-var Gremlin = require('gremlin-secure');
+var Gremlin = require('gremlin');
 var config = require("./config");
 
 const client = Gremlin.createClient(
