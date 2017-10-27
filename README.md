@@ -11,7 +11,7 @@ Azure Cosmos DB is a globally distributed multi-model database. One of the suppo
 
 * Before you can run this sample, you must have the following prerequisites:
 
-	* An active Azure DocumentDB account - If you don't have an account, refer to the [Create a DocumentDB account](https://azure.microsoft.com/en-us/documentation/articles/documentdb-create-account/) article.
+	* An active Azure Cosmos DB account - If you don't have an account, refer to the [Build a Node.js application by using Graph API](https://docs.microsoft.com/en-us/azure/cosmos-db/create-graph-nodejs) article.
 	* [Node.js](https://nodejs.org/en/) version v0.10.29 or higher.
 	* [Git](http://git-scm.com/).
 
@@ -19,7 +19,7 @@ Azure Cosmos DB is a globally distributed multi-model database. One of the suppo
 
 * Next, substitute the graph endpoint (`*.graphs.azure.com`) and primary master key in `config.js` with your Cosmos DB account's values. 
 
-* From a command prompt or shell, run `npm install gremlin-secure` to resolve dependencies. This is private version of the gremlin module which has added support for SSL and SASL, which are required for Azure Cosmos DB, but not supported by the existing gremlin module (until the changes are accepted and merged into the gremlin module).
+* From a command prompt or shell, run `npm install gremlin` to resolve dependencies.
 
 * From a command prompt or shell, run `node app.js` to run the application.
 
@@ -31,5 +31,5 @@ The code included in this sample is intended to get you quickly started with a N
 - [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction)
 - [Azure Cosmos DB : Graph API](https://docs.microsoft.com/azure/documentdb/graph-introduction)
 - [Gremlin Node.js on NPM](https://www.npmjs.com/package/gremlin)
-- [Gremlin Node.js Source](https://github.com/CosmosDB/gremlin-javascript)
+- [Gremlin Node.js Source](https://github.com/jbmusso/gremlin-javascript)
 
