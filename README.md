@@ -19,7 +19,7 @@ Azure Cosmos DB is a globally distributed multi-model database. One of the suppo
 
 * Next, substitute the graph endpoint (`*.graphs.azure.com`) and primary master key in `config.js` with your Cosmos DB account's values. 
 
-* From a command prompt or shell, run `npm install gremlin-secure` to resolve dependencies. This is private version of the gremlin module which has added support for SSL and SASL, which are required for Azure Cosmos DB, but not supported by the existing gremlin module (until the changes are accepted and merged into the gremlin module).
+* From a command prompt or shell, run `npm install gremlin` to resolve dependencies.
 
 * From a command prompt or shell, run `node app.js` to run the application.
 
