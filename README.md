@@ -19,7 +19,7 @@ Azure Cosmos DB is a globally distributed multi-model database. One of the suppo
 
 * Next, substitute the graph endpoint (`*.graphs.azure.com`), your database and collection (graph) values, and primary master key in `config.js` with your Cosmos DB account's values. 
 
-* From a command prompt or shell, run `npm install` from the root directory to install dependencies.
+* From a command prompt or shell, run `npm install` from the root directory to install the gremlin-javascript and async modules, and their dependencies.
 
 * From a command prompt or shell, run `node app.js` to run the application and follow the instructions.
 
