@@ -1,7 +1,7 @@
 ---
 services: cosmos-db
 platforms: nodejs
-author: arramac
+author: lbosq
 ---
 
 # Developing a Node.js app with Gremlin Graph Data using Azure Cosmos DB
@@ -15,13 +15,13 @@ Azure Cosmos DB is a globally distributed multi-model database. One of the suppo
 	* [Node.js](https://nodejs.org/en/) version v0.10.29 or higher.
 	* [Git](http://git-scm.com/).
 
-* Then, clone this repository using `git clone git@github.com:arramac/azure-cosmosdb-graph-nodejs-getting-started.git`
+* Then, clone this repository using `git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started.git`
 
-* Next, substitute the graph endpoint (`*.graphs.azure.com`) and primary master key in `config.js` with your Cosmos DB account's values. 
+* Next, substitute the graph endpoint (`*.graphs.azure.com`), your database and collection (graph) values, and primary master key in `config.js` with your Cosmos DB account's values. 
 
-* From a command prompt or shell, run `npm install gremlin` to resolve dependencies.
+* From a command prompt or shell, run `npm install` from the root directory to install the gremlin-javascript and async modules, and their dependencies.
 
-* From a command prompt or shell, run `node app.js` to run the application.
+* From a command prompt or shell, run `node app.js` to run the application and follow the instructions.
 
 ## About the code
 The code included in this sample is intended to get you quickly started with a Node.js application that connects to Azure Cosmos DB with the Graph (Gremlin) API.
