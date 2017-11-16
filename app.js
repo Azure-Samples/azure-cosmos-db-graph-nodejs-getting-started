@@ -81,8 +81,11 @@ function countVertices(callback)
 });
 }
 
-function finish(callback)
+function finish(err, result)
 {
+    if (err) {
+        return console.error(err);
+    }
     console.log("Finished");
     console.log('Press any key to exit');
     
@@ -91,14 +94,10 @@ function finish(callback)
     process.stdin.on('data', process.exit.bind(process, 0));
 }
 
-try{
-    async.waterfall([
-        dropGraph,
-        addVertex1,
-        addVertex2,
-        addEdge,
-        countVertices
-    ], finish);
-} catch(err) {
-    console.log(err)
-}
+async.waterfall([
+    dropGraph,
+    addVertex1,
+    addVertex2,
+    addEdge,
+    countVertices
+], finish);
