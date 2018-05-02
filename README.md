@@ -29,7 +29,7 @@ The code included in this sample is intended to get you quickly started with a N
 ## More information
 
 - [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction)
-- [Azure Cosmos DB : Graph API](https://docs.microsoft.com/azure/documentdb/graph-introduction)
+- [Azure Cosmos DB : Graph API](https://docs.microsoft.com/azure/cosmos-db/graph-introduction)
 - [Gremlin Node.js on NPM](https://www.npmjs.com/package/gremlin)
 - [Gremlin Node.js Source](https://github.com/jbmusso/gremlin-javascript)
 
