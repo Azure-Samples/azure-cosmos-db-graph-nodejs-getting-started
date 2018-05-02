@@ -47,7 +47,7 @@ function addVertex2(callback)
     console.log('Running Add Vertex2'); 
     client.execute("g.addV('person').property('id', 'mary').property('firstName', 'Mary').property('lastName', 'Andersen').property('age', 39).property('userid', 2)", { }, (err, results) => {
         if (err) {
-            return calback(console.error(err));
+            return callback(console.error(err));
         }
 
         console.log("Result: %s\n", JSON.stringify(results));
