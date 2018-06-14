@@ -1,8 +1,8 @@
 var config = {}
 
-config.endpoint = "GRAPHENDPOINT.gremlin.cosmosdb.azure.com";
-config.primaryKey = "PRIMARYKEY";
-config.database = "graphdb"
-config.collection = "graphcoll"
+config.endpoint = "{cosmosdbacct}.gremlin.cosmosdb.azure.com";
+config.primaryKey = "{primarykey}";
+config.database = "{databasename}"
+config.collection = "{collectionname}"
 
 module.exports = config;
