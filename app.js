@@ -32,7 +32,9 @@ function dropGraph(callback)
 function addVertex1(callback)
 {
     console.log('Running Add Vertex1'); 
-    client.execute("g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44).property('userid', 1)", { }, (err, results) => {
+    client.execute("g.addV(label).property('id', id).property('firstName', firstName).property('age', age).property('userid', userid)", 
+    { label:"person", id:"thomas", firstName:"Thomas", age:44, userid: 1}, 
+    (err, results) => {
         if (err) {
             return callback(console.error(err));
         }
@@ -45,7 +47,9 @@ function addVertex1(callback)
 function addVertex2(callback)
 {
     console.log('Running Add Vertex2'); 
-    client.execute("g.addV('person').property('id', 'mary').property('firstName', 'Mary').property('lastName', 'Andersen').property('age', 39).property('userid', 2)", { }, (err, results) => {
+    client.execute("g.addV(label).property('id', id).property('firstName', firstName).property('lastName', lastName).property('age', age).property('userid', userid)", 
+    { label:"person", id:"mary", firstName:"Mary", lastName: "Andersen", age:39, userid: 2}, 
+    (err, results) => {
         if (err) {
             return callback(console.error(err));
         }
@@ -58,7 +62,9 @@ function addVertex2(callback)
 function addEdge(callback)
 {
     console.log('Running Add Edge'); 
-    client.execute("g.V('thomas').addE('knows').to(g.V('mary'))", { }, (err, results) => {
+    client.execute("g.V(source).addE(relationship).to(g.V(target))", 
+    {source:"thomas", relationship:"knows", target:"mary"}, 
+    (err, results) => {
         if (err) {
             return callback(console.error(err));
         }
