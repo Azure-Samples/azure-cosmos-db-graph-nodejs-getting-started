@@ -2,108 +2,104 @@
 
 var Gremlin = require('gremlin');
 var config = require("./config");
-var async = require('async');
 
-const client = Gremlin.createClient(
-    443, 
+const authenticator = new Gremlin.driver.auth.PlainTextSaslAuthenticator(`/dbs/${config.database}/colls/${config.collection}`, config.primaryKey)
+
+const client = new Gremlin.driver.Client(
     config.endpoint, 
     { 
-        "session": false, 
-        "ssl": true, 
-        "user": `/dbs/${config.database}/colls/${config.collection}`,
-        "password": config.primaryKey
+        authenticator,
+        traversalsource : "g",
+        rejectUnauthorized : true,
+        mimeType : "application/vnd.gremlin-v2.0+json"
     }
 );
 
 
-function dropGraph(callback)
+function dropGraph()
 {
     console.log('Running Drop');
-    client.execute('g.V().drop()', { }, (err, results) => {
-        if (err) {
-            return callback(console.error(err));
-        }
-
-        console.log("Result: %s\n", JSON.stringify(results));
-        callback(null)
+    return client.submit('g.V().drop()', { }).then(function (result) {
+        console.log("Result: %s\n", JSON.stringify(result));
     });
 }
 
-function addVertex1(callback)
+function addVertex1()
 {
     console.log('Running Add Vertex1'); 
-    client.execute("g.addV(label).property('id', id).property('firstName', firstName).property('age', age).property('userid', userid)", 
-    { label:"person", id:"thomas", firstName:"Thomas", age:44, userid: 1}, 
-    (err, results) => {
-        if (err) {
-            return callback(console.error(err));
-        }
+    return client.submit("g.addV(label).property('id', id).property('firstName', firstName).property('age', age).property('userid', userid)", {
+            label:"person",
+            id:"thomas",
+            firstName:"Thomas",
+            age:44, userid: 1
+        }).then(function (result) {
+                console.log("Result: %s\n", JSON.stringify(result));
+        });
+    }
 
-        console.log("Result: %s\n", JSON.stringify(results));
-        callback(null)
-    });
-}
-
-function addVertex2(callback)
+function addVertex2()
 {
-    console.log('Running Add Vertex2'); 
-    client.execute("g.addV(label).property('id', id).property('firstName', firstName).property('lastName', lastName).property('age', age).property('userid', userid)", 
-    { label:"person", id:"mary", firstName:"Mary", lastName: "Andersen", age:39, userid: 2}, 
-    (err, results) => {
-        if (err) {
-            return callback(console.error(err));
-        }
-
-        console.log("Result: %s\n", JSON.stringify(results));
-        callback(null)
-    });
+    console.log('Running Add Vertex2');
+    return client.submit("g.addV(label).property('id', id).property('firstName', firstName).property('lastName', lastName).property('age', age).property('userid', userid)", { 
+            label:"person",
+            id:"mary",
+            firstName:"Mary",
+            lastName: "Andersen",
+            age:39,
+            userid: 2
+        }).then(function (result) {
+            console.log("Result: %s\n", JSON.stringify(result));
+        });
 }
 
-function addEdge(callback)
+function addEdge()
 {
     console.log('Running Add Edge'); 
-    client.execute("g.V(source).addE(relationship).to(g.V(target))", 
-    {source:"thomas", relationship:"knows", target:"mary"}, 
-    (err, results) => {
-        if (err) {
-            return callback(console.error(err));
-        }
+    return client.submit("g.V(source).addE(relationship).to(g.V(target))", {
+            source:"thomas", 
+            relationship:"knows", 
+            target:"mary"
+        }).then(function (result) {
+            console.log("Result: %s\n", JSON.stringify(result));
+        });
+}
 
-        console.log("Result: %s\n", JSON.stringify(results));
-        callback(null)
+function countVertices()
+{
+    console.log('Running Count');
+    return client.submit("g.V().count()", { }).then(function (result) {
+        console.log("Result: %s\n", JSON.stringify(result));
     });
 }
 
-function countVertices(callback)
+function finish()
 {
-    console.log('Running Count');
-    client.execute("g.V().count()", { }, (err, results) => {
-    if (err) {
-        return callback(console.error(err));
-    }
-
-    console.log("Result: %s\n", JSON.stringify(results));
-    callback(null)
-});
-}
-
-function finish(err, result)
-{
-    if (err) {
-        return console.error(err);
-    }
     console.log("Finished");
     console.log('Press any key to exit');
     
-    process.stdin.setRawMode(true);
     process.stdin.resume();
     process.stdin.on('data', process.exit.bind(process, 0));
 }
 
-async.waterfall([
-    dropGraph,
-    addVertex1,
-    addVertex2,
-    addEdge,
-    countVertices
-], finish);
+client.open()
+    .then((res) => 
+        dropGraph()
+    ).then((res) => 
+        addVertex1()
+    ).then((res) => 
+        addVertex2()
+    ).then((res) => 
+        addEdge()
+    ).then((res) => 
+        countVertices()
+    ).catch((err) => {
+        console.error("Error running query...");
+        console.error(err)
+    }).then((res) => {
+        client.close();
+        finish();
+    }).catch((err) => 
+        console.error("Fatal error:", err)
+    );
+    
+
