@@ -1,7 +1,7 @@
 "use strict";
 
-var Gremlin = require('gremlin');
-var config = require("./config");
+const Gremlin = require('gremlin');
+const config = require("./config");
 
 const authenticator = new Gremlin.driver.auth.PlainTextSaslAuthenticator(`/dbs/${config.database}/colls/${config.collection}`, config.primaryKey)
 
@@ -82,17 +82,12 @@ function finish()
 }
 
 client.open()
-    .then((res) => 
-        dropGraph()
-    ).then((res) => 
-        addVertex1()
-    ).then((res) => 
-        addVertex2()
-    ).then((res) => 
-        addEdge()
-    ).then((res) => 
-        countVertices()
-    ).catch((err) => {
+    .then(dropGraph)
+    .then(addVertex1)
+    .then(addVertex2)
+    .then(addEdge)
+    .then(countVertices)
+    .catch((err) => {
         console.error("Error running query...");
         console.error(err)
     }).then((res) => {
@@ -101,5 +96,6 @@ client.open()
     }).catch((err) => 
         console.error("Fatal error:", err)
     );
+    
     
 
