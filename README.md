@@ -17,7 +17,7 @@ Azure Cosmos DB is a globally distributed multi-model database. One of the suppo
 
 * Then, clone this repository using `git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started.git`
 
-* Next, substitute the graph endpoint (`*.graphs.azure.com`), your database and collection (graph) values, and primary master key in `config.js` with your Cosmos DB account's values. 
+* Next, substitute the Gremlin endpoint (`*.gremlin.cosmosdb.azure.com`), your database and collection (graph) values, and primary master key in `config.js` with your Cosmos DB account's values. 
 
 * From a command prompt or shell, run `npm install` from the root directory to install the gremlin-javascript and async modules, and their dependencies.
 
