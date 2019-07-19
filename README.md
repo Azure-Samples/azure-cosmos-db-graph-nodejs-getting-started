@@ -1,10 +1,12 @@
 ---
 languages:
 - javascript
+- nodejs
 page_type: sample
 products:
 - azure
 - azure-cosmos-db
+description: "How to use the Azure Cosmos DB with the Graph API to store and access data from a Node.js application."
 ---
 
 # Developing a Node.js app with Gremlin Graph Data using Azure Cosmos DB
