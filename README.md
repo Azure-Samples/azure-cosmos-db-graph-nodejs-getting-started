@@ -1,7 +1,10 @@
 ---
-services: cosmos-db
-platforms: nodejs
-author: lbosq
+languages:
+- javascript
+page_type: sample
+products:
+- azure
+- azure-cosmos-db
 ---
 
 # Developing a Node.js app with Gremlin Graph Data using Azure Cosmos DB
@@ -32,4 +35,3 @@ The code included in this sample is intended to get you quickly started with a N
 - [Azure Cosmos DB : Graph API](https://docs.microsoft.com/azure/cosmos-db/graph-introduction)
 - [Gremlin Node.js on NPM](https://www.npmjs.com/package/gremlin)
 - [Gremlin Node.js Source](https://github.com/jbmusso/gremlin-javascript)
-
