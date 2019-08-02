@@ -27,7 +27,7 @@ function dropGraph()
 function addVertex1()
 {
     console.log('Running Add Vertex1'); 
-    return client.submit("g.addV(label).property('id', id).property('firstName', firstName).property('age', age).property('userid', userid)", {
+    return client.submit("g.addV(label).property('id', id).property('firstName', firstName).property('age', age).property('userid', userid).property('pk', 'pk')", {
             label:"person",
             id:"thomas",
             firstName:"Thomas",
@@ -40,7 +40,7 @@ function addVertex1()
 function addVertex2()
 {
     console.log('Running Add Vertex2');
-    return client.submit("g.addV(label).property('id', id).property('firstName', firstName).property('lastName', lastName).property('age', age).property('userid', userid)", { 
+    return client.submit("g.addV(label).property('id', id).property('firstName', firstName).property('lastName', lastName).property('age', age).property('userid', userid).property('pk', 'pk')", { 
             label:"person",
             id:"mary",
             firstName:"Mary",
