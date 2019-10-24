@@ -10,7 +10,8 @@ description: "How to use the Azure Cosmos DB with the Graph API to store and acc
 urlFragment: developing-nodejs-gremlin
 ---
 
-# Developing a Node.js app with Gremlin Graph Data using Azure Cosmos DB
+# Develop a Node.js app with Gremlin Graph and Azure Cosmos DB
+
 Azure Cosmos DB is a globally distributed multi-model database. One of the supported APIs is the Graph (Gremlin) API, which provides a graph data model with [Gremlin query/traversals](https://tinkerpop.apache.org/gremlin.html). This sample shows you how to use the Azure Cosmos DB with the Graph API to store and access data from a Node.js application.
 
 ## Running this sample
